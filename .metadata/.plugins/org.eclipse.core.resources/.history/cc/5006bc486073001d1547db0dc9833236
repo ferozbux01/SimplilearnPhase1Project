@@ -1,0 +1,44 @@
+package fileManagement;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class FilesCheck {
+	String dir="/LockedMeFiles/";
+	File folder=new File(dir);
+	FilesCheck(){
+		boolean folderCreated = folder.mkdir();
+		if(folderCreated)
+		{
+			System.out.println("Directory was not found.");
+			System.out.println("New Directory Created: "+folder.getAbsoluteFile());
+		}	
+		ArrayList<String> files=new ArrayList<String>();
+        File[] flist = folder.listFiles();
+        System.out.println(flist);
+        FilesCheckMenu();
+		
+	}
+	void FilesCheckMenu(){
+		System.out.println("******************************");
+		System.out.println("******************************");
+		System.out.println("Choose from this Menu");
+		System.out.println("1- Back to Main Menu");
+		System.out.println("2- Exit App");
+		Scanner sc=new Scanner(System.in);
+		int input = sc.nextInt();
+		switch(input) {
+		case 1:
+			Main mainClass=new Main();
+			mainClass.mainMenu();
+			break;
+		case 2:
+			System.out.println("Application Closed");
+			System.exit(0);
+		default:
+			System.out.println("You have entered a wrong choice! Enter the correct choice from the Menu");
+			FilesCheckMenu();
+			break;
+		}
+	}
+}

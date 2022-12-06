@@ -1,0 +1,8 @@
+package fileManagement;
+
+public class DevInfo {
+DevInfo(){
+	System.out.println("Name of the Developer: Mohd Feroz Bux");
+	System.out.println("Technology Used: Java");
+}
+}

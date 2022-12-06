@@ -1,0 +1,5 @@
+package fileManagement;
+import java.io.File;
+public class FilesCheck {
+File file=new File(C:\Phase-1Assessment);
+}

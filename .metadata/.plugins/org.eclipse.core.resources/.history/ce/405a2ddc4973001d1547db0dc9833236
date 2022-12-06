@@ -1,0 +1,13 @@
+package fileManagement;
+import java.io.File;
+public class FilesCheck {
+	FilesCheck(){
+		File file=new File("/LockedMeFiles/");
+		boolean folderCreated = file.mkdir();
+		if(folderCreated)
+		{
+			System.out.println("Directory was not found.");
+			System.out.println("New Directory Created: "file.getAbsoluteFile());
+		}
+	}
+}

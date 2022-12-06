@@ -1,0 +1,82 @@
+package fileManagement;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class UserInterface{
+String dir="/LockedMeFiles/";
+String fileName;
+Scanner sc=new Scanner(System.in);
+UserInterface(){
+	System.out.println("Welcome to File Managing Menu\nPlease Choose from the Menu");
+	UserInterfaceMenu();
+}
+void UserInterfaceMenu(){
+	System.out.println("******************************");
+	System.out.println("******************************");
+	System.out.println("Choose From the Options");
+	System.out.println("1- Add a new txt file");
+	System.out.println("2- Delete a File");
+	System.out.println("3- Search a File");
+	System.out.println("4- Back to Main Menu");
+	int Input = sc.nextInt();
+	switch(Input) {
+	case 1:
+		add();
+		break;
+	case 2:
+		delete();
+		break;
+	case 3:
+		search();
+		break;
+	case 4:
+		Main m=new Main();
+		m.mainMenu();
+	default:
+		System.out.println("You have entered a wrong choice! Enter the correct choice from the Menu");
+		UserInterfaceMenu();
+	}
+}
+void add() {
+	System.out.println("Enter the name");
+	fileName=sc.nextLine();
+	File newfile=new File(dir+fileName+".txt");
+	boolean fileCreated=false;
+	try {
+		fileCreated = newfile.createNewFile();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	if(fileCreated)
+	{
+		System.out.println("File Created Successfully");
+	}
+	else
+	{
+		System.out.println("File not Created");
+	}
+}
+
+void delete() {
+	System.out.println("Enter the name of the file to be deleted");
+	Scanner sc=new Scanner(System.in);
+	fileName = sc.nextLine();
+	File deletefile=new File(dir+fileName+".txt");
+	boolean deleteAfile=false;
+	deletefile.delete();
+	if(deleteAfile)
+	{
+		System.out.println("File Deleted Successfully");
+	}
+	else
+	{
+		System.out.println("File not Deleted");
+	}
+	
+}
+void search() {
+	
+}
+}

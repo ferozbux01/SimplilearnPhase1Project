@@ -1,0 +1,43 @@
+package fileManagement;
+import java.io.File;
+import java.util.Scanner;
+public class FilesCheck {
+	FilesCheck(){
+		File file=new File("/LockedMeFiles/");
+		boolean folderCreated = file.mkdir();
+		if(folderCreated)
+		{
+			System.out.println("Directory was not found.");
+			System.out.println("New Directory Created: "+file.getAbsoluteFile());
+		}
+		else
+		{
+			
+		}
+		FilesCheckMenu();
+	}
+	void FilesCheckMenu(){
+		System.out.println("******************************");
+		System.out.println("******************************");
+		System.out.println("1- Back to Main Menu");
+		System.out.println("2- Recheck if any new files are added");
+		System.out.println("2- Exit");
+		Scanner sc=new Scanner(System.in);
+		int input = sc.nextInt();
+		switch(input) {
+		case 1:
+			Main mainClass=new Main();
+			mainClass.mainMenu();
+			break;
+		case 2:
+			FilesCheck();
+			break;
+		case 3:
+			System.exit(0);
+		default:
+			System.out.println("You have entered a wrong choice! Enter the correct choice from the Menu");
+			FilesCheckMenu();
+			break;
+		}
+	}
+}

@@ -1,0 +1,8 @@
+package fileManagement;
+import java.io.File;
+public class FilesCheck {
+	FilesCheck(){
+		File file=new File("/LockedMeFiles/");
+		boolean folderCreated = file.mkdir();
+}
+}
